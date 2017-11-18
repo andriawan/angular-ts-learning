@@ -1,0 +1,52 @@
+<h1>Hello from {{name}}</h1>
+<h2>We know that you are in {{age}}</h2>
+<h2>Your email is {{email}}</h2>
+<h2>And you are in {{address.city}} at {{address.street}}</h2>
+
+<h1>Hobbies</h1>
+<form (submit)="addHobby(hobby.value)">
+  <div>
+    <label for="hobby">Hobby</label>
+    <input type="text" #hobby>
+  </div>
+</form>
+<ul>
+  <li *ngFor="let hobby of hobbies; let i = index">
+    {{i + 1}} : {{hobby}}
+    <button (click)="deleteHobby(hobby)">X</button>
+  </li>
+</ul>
+
+<button (click)="onClick()">Click Me</button>
+<button (click)="toggleEdit()">Toggle Edit User</button>
+
+<div *ngIf="isEdit">
+  <h1>Edit User</h1>
+  <form>
+    <div>
+      <label for="name">Nama:</label>
+      <input type="text" [(ngModel)]="name" name="name">
+    </div>
+
+    <div>
+      <label for="name">Age:</label>
+      <input type="text" [(ngModel)]="age" name="age">
+    </div>
+
+    <div>
+      <label for="name">Email:</label>
+      <input type="text" [(ngModel)]="email" name="email">
+    </div>
+
+    <div>
+        <label for="name">City:</label>
+        <input type="text" [(ngModel)]="address.city" name="address.city">
+    </div>
+
+    <div>
+      <label for="name">State:</label>
+      <input type="text" [(ngModel)]="address.state" name="address.state">
+    </div>
+
+  </form>
+</div>
